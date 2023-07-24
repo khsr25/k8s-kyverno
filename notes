@@ -1,0 +1,30 @@
+kubectl create -f https://github.com/kyverno/kyverno/releases/download/v1.8.5/install.yaml ---kyveno dynamic controll
+
+kubectl get pods -n kyverno 
+
+https://raw.githubusercontent.com/khsr25/k8s-kyverno/main/examples/enforce-pod-requests-limits.yml    --kyverno policy
+
+kubectl get pods -A | grep kyverno
+
+kubectl logs kyverno-c59cdd4bf-jg4tq -n kyverno  -->logs check
+kubectl create deployment nginx --image=nginx
+
+error while creating pod
+===============================
+
+controlplane $ kubectl create deployment nginx --image=nginx
+error: failed to create deployment: admission webhook "validate.kyverno.svc-fail" denied the request: 
+
+policy Deployment/default/nginx for resource violation: 
+
+require-requests-limits:
+  autogen-validate-resources: 'validation error: CPU and memory resource requests
+    and limits are required. rule autogen-validate-resources failed at path /spec/template/spec/containers/0/resources/limits/'
+controlplane $ kubectl create deployment nginx --image=nginx
+error: failed to create deployment: admission webhook "validate.kyverno.svc-fail" denied the request: 
+
+policy Deployment/default/nginx for resource violation: 
+
+require-requests-limits:
+  autogen-validate-resources: 'validation error: CPU and memory resource requests
+    and limits are required. rule autogen-validate-resources failed at path /spec/template/spec/containers/0/resources/limits/'
