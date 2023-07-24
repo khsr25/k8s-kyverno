@@ -1,3 +1,5 @@
+ https://github.com/kyverno/policies/tree/main/best--->reference
+
 kubectl create -f https://github.com/kyverno/kyverno/releases/download/v1.8.5/install.yaml ---kyveno dynamic controll
 
 kubectl get pods -n kyverno 
